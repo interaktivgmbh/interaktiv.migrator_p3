@@ -17,7 +17,7 @@
 
     <div>
       <p>&nbsp;</p>
-      <span tal:replace="view/description" />
+      <span tal:replace="structure view/description" />
       <p>&nbsp;</p>
     </div>
 

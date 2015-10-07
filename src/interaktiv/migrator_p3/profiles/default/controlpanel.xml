@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<object name="portal_controlpanel" meta_type="Plone Control Panel Tool"
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="interaktiv.migrator_p3">
+ <configlet
+    title="Migrator Configuration"
+    action_id="interaktiv.migrator_p3"
+    appId="interaktiv.migrator_p3"
+    category="Products"
+    condition_expr=""
+    icon_expr="string:${portal_url}/++theme++interaktiv.migrator_p3/migrator.png"
+    url_expr="string:${portal_url}/@@migrator-controlpanel"
+    visible="True"
+    i18n:attributes="title">
+      <permission>ManagePortal</permission>
+ </configlet>
+</object>

@@ -1,0 +1,49 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:transmogrifier="http://namespaces.plone.org/transmogrifier"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="interaktiv.migrator_p3">
+
+  <include package="collective.transmogrifier" file="meta.zcml" />
+  <include package="collective.transmogrifier" />
+
+  <transmogrifier:registerConfig
+    name="export_content"
+    title="Export Content"
+    description="Export Content to Target Site"
+    configuration="export_content.cfg"
+    />
+
+  <transmogrifier:registerConfig
+    name="export_references"
+    title="Export References"
+    description="Export References to Target Site"
+    configuration="export_references.cfg"
+    />
+
+  <!-- SECTION / BLUEPRINTS -->
+  <utility
+    component=".sections.site_walker.SiteWalkerSection"
+    name="interaktiv.migrator_p3.import_content.site_walker"
+    />
+
+  <utility
+    component=".sections.site_walker.GetATDataSection"
+    name="interaktiv.migrator_p3.import_content.get_at_data"
+    />
+
+  <utility
+    component=".sections.site_walker.GetATReferenceSection"
+    name="interaktiv.migrator_p3.import_content.get_at_references_data"
+    />
+
+  <utility
+    component=".sections.site_walker.APICreateContentSection"
+    name="interaktiv.migrator_p3.import_content.api_create_content"
+    />
+
+</configure>

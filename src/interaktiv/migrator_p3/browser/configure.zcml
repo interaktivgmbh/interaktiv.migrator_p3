@@ -1,0 +1,52 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    i18n_domain="interaktiv.migrator_p3">
+
+  <!-- Migrator Configuration -->
+  <browser:page
+      name="migrator-controlpanel"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      class=".configuration.ConfigurationForm"
+      permission="cmf.ManagePortal"
+  />
+  <adapter factory=".configuration.ConfigurationControlPanelAdapter" />
+
+  <!-- Export via Transmogrifier -->
+  <browser:page
+    name="export_content"
+    for="*"
+    class=".export_content.ExportContentForm"
+    permission="zope2.View"
+    />
+  <browser:page
+    name="export"
+    for="*"
+    class=".export_content.ExportContentView"
+    permission="zope2.View"
+    />
+  <browser:page
+    name="export_references"
+    for="*"
+    class=".export_content.ExportReferencesForm"
+    permission="zope2.View"
+    />
+
+  <!-- API Create Content -->
+  <browser:page
+    name="create_content"
+    for="*"
+    class=".create_content.CreateContentAPIView"
+    permission="zope2.View"
+    />
+
+  <!-- Export Context -->
+  <browser:page
+    name="export_this"
+    for="*"
+    class=".export.ExportContextView"
+    permission="zope2.View"
+    />
+
+</configure>

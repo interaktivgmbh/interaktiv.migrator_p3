@@ -1,0 +1,46 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="interaktiv.migrator_p3">
+
+
+  <five:registerPackage package="." initialize=".initialize" />
+
+  <include package=".browser" />
+
+  <browser:resourceDirectory
+    name="interaktiv.migrator"
+    directory="static"
+    />
+
+  <genericsetup:registerProfile
+    name="default"
+    title="interaktiv.migrator_p3"
+    directory="profiles/default"
+    description="Installs the interaktiv.migrator_p3 package"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <genericsetup:registerProfile
+    name="uninstall"
+    title="interaktiv.migrator_p3"
+    directory="profiles/uninstall"
+    description="Uninstalls the interaktiv.migrator_p3 package"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <utility
+    factory=".export_utility.ExportUtility"
+    provides=".interfaces.IExportUtility"/>
+
+  <utility
+    factory=".import_utility.ImportUtility"
+    provides=".interfaces.IImportUtility"/>
+
+  <include file="transmogrifier.zcml" />
+
+</configure>

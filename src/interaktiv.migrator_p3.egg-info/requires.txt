@@ -1,7 +1,0 @@
-setuptools
-collective.transmogrifier
-plone.z3cform
-
-[test]
-plone.app.testing
-unittest2

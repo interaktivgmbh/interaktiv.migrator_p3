@@ -9,7 +9,7 @@
 /dist
 /local.cfg
 .coverage
-/*.egg-info
+*.egg-info
 /.installed.cfg
 *.pyc
 /.Python
